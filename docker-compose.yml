@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  metab:
+    image: metabase/metabase:v0.30.0
+    # image: metabase/metabase:v0.25.2
+    ports:
+      - "6052:3000"
+    volumes:
+      - ./metabasedata:/metabase-data
+    env_file:
+      - .env
+      
+  db:
+    image: mysql:5.7
+    restart: always
+    env_file:
+      - .env
+    # ports:
+      # - "6022:3306"
+    volumes:
+      - ./mysqldata/:/var/lib/mysql/
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 6053:8080

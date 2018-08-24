@@ -1,7 +1,7 @@
-version: '3'
+version: '3.6'
 
 services:
-  metab:
+  mb:
     image: metabase/metabase:v0.30.0
     # image: metabase/metabase:v0.25.2
     ports:
@@ -10,6 +10,8 @@ services:
       - ./metabasedata:/metabase-data
     env_file:
       - .env
+    depends_on:
+      - db
       
   db:
     image: mysql:5.7
@@ -22,7 +24,7 @@ services:
       - ./mysqldata/:/var/lib/mysql/
 
   adminer:
-    image: adminer
+    image: adminer:4.6.3
     restart: always
     ports:
       - 6053:8080

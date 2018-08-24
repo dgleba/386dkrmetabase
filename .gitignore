@@ -1,0 +1,12 @@
+# .env
+
+#data
+mysqldata/
+metabasedata/
+
+
+postgres
+
+# python
+*.pyc
+static/

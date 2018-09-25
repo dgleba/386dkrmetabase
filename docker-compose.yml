@@ -1,30 +1,43 @@
 version: '3.6'
 
 services:
+
   mb:
     image: metabase/metabase:v0.30.0
     # image: metabase/metabase:v0.25.2
     ports:
       - "6052:3000"
     volumes:
-      - ./metabasedata:/metabase-data
+      - ../data/metabasedata:/metabase-data
     env_file:
       - .env
-    depends_on:
-      - db
-      
-  db:
-    image: mysql:5.7
-    restart: always
-    env_file:
-      - .env
+    # depends_on:
+      # - db
+    networks:
+      - one
+       
+  # db:
+    # image: mysql:5.7
+    # restart: always
+    # env_file:
+      # - .env
+    # # ports:
+      # # - "6022:3306"
+    # volumes:
+      # - ../data/metabasedata/mysqldata/:/var/lib/mysql/
+    # networks:
+      # - one
+ 
+  # adminer:
+    # image: adminer:4.6.3
+    # restart: always
     # ports:
-      # - "6022:3306"
-    volumes:
-      - ./mysqldata/:/var/lib/mysql/
-
-  adminer:
-    image: adminer:4.6.3
-    restart: always
-    ports:
-      - 6053:8080
+      # - 6053:8080
+    # networks:
+      # - one
+ 
+networks:
+  one:
+    name: one
+      external:true
+     

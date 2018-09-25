@@ -3,9 +3,10 @@
 #data
 mysqldata/
 metabasedata/
+var/
 
 
-postgres
+postgres/
 
 # python
 *.pyc

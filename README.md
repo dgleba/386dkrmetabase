@@ -13,5 +13,13 @@ cd metabase
 docker-compose up
 ```
 
+## make database in mysql
+
+cd /srv/dkr/392dkr/backend392
+make mycrd
+
+
 Access your instance in a browser at `localhost:6052`.
 Edit `localhost` to whatever IP or named address your machine is.
+
+

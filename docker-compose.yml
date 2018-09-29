@@ -6,15 +6,15 @@ services:
     image: metabase/metabase:v0.30.0
     # image: metabase/metabase:v0.25.2
     ports:
-      - "6052:3000"
+      - "6151:3000"
     volumes:
-      - ../data/metabasedata:/metabase-data
+      - ../../data/metabasedata:/metabase-data
     env_file:
       - .env
     # depends_on:
       # - db
     networks:
-      - one
+      - sister
        
   # db:
     # image: mysql:5.7
@@ -26,7 +26,7 @@ services:
     # volumes:
       # - ../data/metabasedata/mysqldata/:/var/lib/mysql/
     # networks:
-      # - one
+      # - sister
  
   # adminer:
     # image: adminer:4.6.3
@@ -34,10 +34,10 @@ services:
     # ports:
       # - 6053:8080
     # networks:
-      # - one
+      # - sister
  
 networks:
-  one:
-    name: one
+  sister:
+    name: sister
       external:true
      

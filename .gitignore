@@ -1,10 +1,15 @@
-# .env
+.env
+.env.local
+
+
+private/
 
 #data
 mysqldata/
 metabasedata/
 var/
-
+data/
+datasys/
 
 postgres/
 

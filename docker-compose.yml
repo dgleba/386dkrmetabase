@@ -1,7 +1,6 @@
-version: '3.6'
+version: "3.6"
 
 services:
-
   mb:
     image: metabase/metabase:v0.30.0
     # image: metabase/metabase:v0.25.2
@@ -12,7 +11,7 @@ services:
     env_file:
       - .env
     # depends_on:
-      # - db
+    # - db
     restart: always
     networks:
       - sister
@@ -20,31 +19,29 @@ services:
     logging:
       driver: "json-file"
       options:
-        max-size: "1m"
-        max-file: "30"
-
+        max-size: "200k"
+        max-file: "90"
+        #
   # db:
-    # image: mysql:5.7
-    # restart: always
-    # env_file:
-      # - .env
-    # # ports:
-      # # - "6022:3306"
-    # volumes:
-      # - ../data/metabasedata/mysqldata/:/var/lib/mysql/
-    # networks:
-      # - sister
- 
+  # image: mysql:5.7
+  # restart: always
+  # env_file:
+  # - .env
+  # # ports:
+  # # - "6022:3306"
+  # volumes:
+  # - ../data/metabasedata/mysqldata/:/var/lib/mysql/
+  # networks:
+  # - sister
   # adminer:
-    # image: adminer:4.6.3
-    # restart: always
-    # ports:
-      # - 6053:8080
-    # networks:
-      # - sister
- 
+  # image: adminer:4.6.3
+  # restart: always
+  # ports:
+  # - 6053:8080
+  # networks:
+  # - sister
+
 networks:
   sister:
     name: sister
       external:true
-     

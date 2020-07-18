@@ -5,7 +5,7 @@ services:
     image: metabase/metabase:v0.30.0
     # image: metabase/metabase:v0.25.2
     ports:
-      - "6151:3000"
+      - "6159:3000"
     volumes:
       - ../data/metabasedata:/metabase-data
     env_file:
@@ -20,7 +20,7 @@ services:
       driver: "json-file"
       options:
         max-size: "200k"
-        max-file: "90"
+        max-file: "50"
         #
   # db:
   # image: mysql:5.7
